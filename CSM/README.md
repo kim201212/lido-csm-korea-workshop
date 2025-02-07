@@ -67,11 +67,12 @@ ethd start
 
 8. Deposit data Upload 하기
 
-- https://csm.testnet.fi/
 
 ```
 cat ~/eth-docker/.eth/validator_keys/deposit*
 ```
+
+- https://csm.testnet.fi/
 
 9. Validator key Import & Validator Restart
 
