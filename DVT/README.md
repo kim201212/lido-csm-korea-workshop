@@ -46,7 +46,7 @@ docker compose run -u root --rm charon create enr
 - Validator 갯수 선택
 - 본인 ENR
 - 참여자 주소
-- 생성할 갯수
+- 생성할 Validator 갯수
 
 6. Confirm Configuration
 
