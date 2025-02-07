@@ -35,13 +35,13 @@ docker compose run -u root --rm charon create enr
 
 4. DV cluster 생성
 
+- 리더 선정, 리더가 클러스터 생성
 - https://holesky.launchpad.obol.org/
 
 5. Create a cluster with a group 선택
 
 ![image](https://github.com/user-attachments/assets/9b6205c0-4b79-4c45-a82c-70bb61c535dc)
 
-- 리더 선정
 - Cluster Operator 주소
 - Validator 갯수 선택
 - 본인 ENR
