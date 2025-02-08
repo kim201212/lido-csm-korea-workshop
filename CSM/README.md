@@ -81,3 +81,39 @@ sudo chown -R $USER:$USER ~/eth-docker/.eth/validator_keys
 ethd keys import
 ethd restart validator
 ```
+
+## Operation
+
+1. Execution, Consensus, Validaotr, MEV-Boost 프로세스가 다운 된 경우
+
+```
+$ docker ps
+
+CONTAINER ID   IMAGE              COMMAND                  CREATED        STATUS        PORTS                                                                                                              NAMES
+55073ed61e89   nethermind:local   "docker-entrypoint.s…"   12 hours ago   Up 12 hours   8545/tcp, 8551/tcp, 0.0.0.0:30303->30303/tcp, 0.0.0.0:30303->30303/udp, :::30303->30303/tcp, :::30303->30303/udp   eth-docker-execution-1
+250d9eea24b4   lighthouse:local   "docker-entrypoint-v…"   12 hours ago   Up 12 hours                                                                                                                      eth-docker-validator-1
+f51abab548f9   lighthouse:local   "docker-entrypoint.s…"   12 hours ago   Up 12 hours   0.0.0.0:9000->9000/tcp, 0.0.0.0:9000-9001->9000-9001/udp, :::9000->9000/tcp, :::9000-9001->9000-9001/udp           eth-docker-consensus-1
+343167d6cacb   mev-boost:local    "/app/mev-boost -add…"   12 hours ago   Up 12 hours   18550/tcp                                                                                                          eth-docker-mev-boost-1
+```
+
+- 정상적인 상황이라면, 위와 같이 4개의 도커 컨테이너가 떠있어야함
+
+```
+ethd restart <execution, consensus, validator, mev-boost>
+ethd start <execution, consensus, validator, mev-boost>
+```
+
+- 4개의 도커 컨테이너중 하나라도 다운이 되어있으면 재시작
+
+2. 디스크에 여유 공간이 없는 경우
+
+```
+$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       290G  177G  114G  61% /
+```
+
+- df 명령어로 확인해보고 Use가 100% 인경우 노드가 싱크를 받을 수 없는 상황
+- 디스크의 볼륨을 증가시킬 수 있으면, 증가
+- 디스크의 볼륨을 증가시킬 수 없다면, Pruning 또는 다시 싱크를 받아야함
+- 수시로 디스크의 사용량을 모니터링 해주는게 좋음
