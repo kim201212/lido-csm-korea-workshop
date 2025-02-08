@@ -11,8 +11,6 @@
 - Obol distributed validator node: https://github.com/ObolNetwork/charon-distributed-validator-node
 - Holesky Obol Launchpad: https://holesky.launchpad.obol.org/
 
-***
-
 ## Step by step guide
 
 - [CSM](https://github.com/kim201212/lido-csm-korea-workshop/blob/main/CSM/README.md)
