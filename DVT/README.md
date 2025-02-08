@@ -12,13 +12,12 @@
 1. Obol distributed validator node 다운로드
 
 ```
-git clone https://github.com/ObolNetwork/charon-distributed-validator-node.git
+cd ~ && git clone https://github.com/ObolNetwork/charon-distributed-validator-node.git && cd charon-distributed-validator-node
 ```
 
 2. 환경 파일 생성
 
 ```
-cd charon-distributed-validator-node
 mkdir .charon
 cp .env.sample.holesky .env
 ```
